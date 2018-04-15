@@ -54,6 +54,7 @@ graph bar, over(momdedcat) title("Mom Education")
 
 tab lnbw
 
+centile (lnbw), centile (20 40 60 80)
 **generate lnbw percentile for crosstab vs. 
 gen lnbw_pctile = 0
 replace lnbw_pctile = 1 if lnbw < 4.60517
