@@ -67,6 +67,8 @@ label variable lnbw_pctile "Birth Weight Percentile Bins"
 label define lbw 1 "0-20" 2 "20-40" 3 "40-60" 4 "60-80" 5 "80-100"
 label values lnbw_pctile lbw
 
+tab lnbw_pctile
+
 tab hsgrad
 
 foreach var in male black hispanic momdedcat lnbw_pctile hsgrad somecoll {
@@ -91,6 +93,10 @@ reg comp_score_5to6 head_start, r cluster(mom_id)
 local controls male black hispanic momed dadhome_0to3 lninc_0to3 lnbw
 reg comp_score_5to6 head_start `controls', r cluster(mom_id)
 
+***OLS with controls + PPVT_3
+local controls male black hispanic momed dadhome_0to3 lninc_0to3 lnbw ppvt_3
+reg comp_score_5to6 head_start `controls', r cluster(mom_id)
+
 
 ********************************************************************************
 **                                   P3                                      **
@@ -112,7 +118,11 @@ xtreg comp_score_5to6 head_start `controls', i(mom_id) fe
 ********************************************************************************
 
 ***See answer explanation
-***Wasn't clear on how to test this assumption
+
+reg head_start lnbw ppvt_3 firstborn male, robust
+test lnbw ppvt_3 male firstborn
+
+corr head_start male black ppvt_3 lnbw firstborn sibdiff momed dadhome_0to3
 
 ********************************************************************************
 **                                   P5                                       **
