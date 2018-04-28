@@ -123,7 +123,7 @@ outreg2 using PS5_Q2_Outreg.xls, ctitle(whitecollar) append label
 foreach var of varlist arms-whitecollar {
 	reg `var' conscripted argentine indigenous naturalized i.birthyr, r
 	}
-
+**Same same
 	
 	
 ***Our parameter of interest is the effect of serving in the military on the 
@@ -298,10 +298,10 @@ test argentine indigenous naturalized
 **I'm not willing to make these assumptions. 
 
 **e.g., let's assume 90% of Israelis always want to consript - that completely 
-**changes how we scalethink about our estimate our estimate 
+**changes how we scale/think about our estimate 
 
 **It's an entirely different miltiary system (i.e. "treatment); just as we see different 
-** effects by birth years b/c of intensity of war, we'd expect to see different 
+**effects by birth years b/c of intensity of war, we'd expect to see different 
 **effects in Israel b/c of different nature/culture of war. 
 
 
